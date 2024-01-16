@@ -9,11 +9,13 @@ export default {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
     ],
+    darkMode: 'class', // or 'media'
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                serif: ['MyImpact', ...defaultTheme.fontFamily.serif],
             },
         },
     },

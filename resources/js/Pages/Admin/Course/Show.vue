@@ -25,7 +25,6 @@ import VideoDashboard from "@/Components/video/VideoDashboard.vue";
             </div>
         </section>
 
-
         <section class="py-12 dark:text-gray-100">
           <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
               <div class="p-4">

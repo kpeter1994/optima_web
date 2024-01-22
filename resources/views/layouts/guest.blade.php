@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="hu">
     @include('partials._head')
-<body class="bg-black dark">
+<body class="bg-white dark:bg-black">
     <div id="app-guest">
         @include('partials._nav')
 

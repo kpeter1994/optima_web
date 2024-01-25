@@ -39,7 +39,9 @@ class CourseController extends Controller
             'body' => ['nullable'],
         ]);
 
+
         $course = Course::create($validated);
+
 
         $course->save();
 
@@ -49,9 +51,12 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Course $course)
+    public function show(string $slug)
     {
-        //
+        $course = Course::where('slug', $slug)->firstOrFail();
+
+        return Inertia::render('Admin/Course/Show', compact('course'));
+
     }
 
     /**

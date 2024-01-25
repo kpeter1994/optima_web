@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Course;
 
 class LessonController extends Controller
 {
@@ -18,9 +20,13 @@ class LessonController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $kurzu)
     {
-        //
+        $course = Course::find($kurzu);
+        $lastOrder  = Lesson::max('order');
+        $lastLesson = $lastOrder !== null ? $lastOrder : 0;
+
+        return Inertia::render('Admin/Course/Lesson/Create', compact('course', 'lastLesson'));
     }
 
     /**
@@ -28,7 +34,21 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'course_id' => 'required',
+            'order' => 'required',
+            'summary' => 'nullable',
+            'body' => 'nullable',
+            'slug' => 'required',
+        ]);
+
+        $lesson = Lesson::create($validatedData);
+
+
+        $lesson->save();
+
+        return redirect()->route('admin.index');
     }
 
     /**

@@ -3,6 +3,10 @@ import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
+    classes: {
+        type: String,
+        default: '',
+    },
     href: {
         type: String,
         required: true,

@@ -14,7 +14,10 @@ class Lesson extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'created_at',
+        'updated_at',
         'course_id',
+        'order',
         'title',
         'summary',
         'slug',

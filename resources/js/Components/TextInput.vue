@@ -6,6 +6,10 @@ const model = defineModel({
     required: true,
 });
 
+const props = defineProps({
+    classes: String,
+});
+
 const input = ref(null);
 
 onMounted(() => {
@@ -23,6 +27,7 @@ defineExpose({ focus: () => input.value.focus() });
         py-3
         border-gray-300
         dark:border-gray-500
+        dark:border-opacity-60
         dark:bg-gray-800
         dark:text-gray-300
         focus:border-indigo-500
@@ -31,6 +36,7 @@ defineExpose({ focus: () => input.value.focus() });
         dark:focus:ring-gray-500
         rounded-lg
         shadow-sm"
+        :class="props.classes"
         v-model="model"
         ref="input"
     />

@@ -9,14 +9,22 @@ import Editor from '@tinymce/tinymce-vue'
 import {formater} from "@/utils.js";
 import {watch} from "vue";
 
+const props = defineProps({
+    errors: Object,
+    course: Object,
+    lastLesson: Number,
+});
+
+
+console.log(props.lastLesson)
+
 const form = useForm({
     title: '',
-    price: '',
+    course_id: props.course.id,
+    order:  props.lastLesson + 1,
     summary: '',
-    slug: '',
-    image: '',
-    video: '',
     body: '',
+    slug: '',
 });
 
 const handleImageUpload = (imagePath) => {
@@ -24,7 +32,7 @@ const handleImageUpload = (imagePath) => {
 }
 
 const submit = () => {
-    form.post(route('kurzus.store', form.data));
+    form.post(route('kurzus.lecke.store', { kurzu: props.course.id }), form);
 };
 
 watch(() => form.title, (newTitle) => {
@@ -41,7 +49,8 @@ watch(() => form.title, (newTitle) => {
         <section class="py-12 dark:text-gray-100">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <form class="p-4 lg:p-6 rounded-2xl  mt-6">
-                    <h1 class="text-lg font-semibold mb-4">Új kurzus létrehozása</h1>
+                    <h1 class="text-lg font-semibold mb-4">Új lecke létrehozása</h1>
+
 
                     <div class="flex flex-col lg:flex-row">
 
@@ -71,35 +80,31 @@ watch(() => form.title, (newTitle) => {
                         <div class="lg:w-4/12 ml-3 order-1 lg:order-2">
                             <div class="mb-4">
                                 <InputLabel class="mb-1.5">Kurzus címe</InputLabel>
+                                <p class="font-semibold">{{props.course.title}}</p>
+                            </div>
+                            <div class="mb-4">
+                                <InputLabel class="mb-1.5">Lecke címe</InputLabel>
                                 <TextInput class="w-full" v-model="form.title"></TextInput>
                             </div>
                             <div class="mb-4">
-                                <InputLabel class="mb-1.5">Kurzus rövid leírása</InputLabel>
+                                <InputLabel class="mb-1.5">Lecke rövid leírása</InputLabel>
                                 <TextInput class="w-full" v-model="form.summary"></TextInput>
                             </div>
                             <div class="mb-4">
-                                <InputLabel class="mb-1.5">Kurzus ára (Ft)</InputLabel>
-                                <TextInput type="number" class="w-full" v-model="form.price"></TextInput>
+                                <InputLabel class="mb-1.5">Lecke sorszáma</InputLabel>
+                                <TextInput type="number" class="w-full" v-model="form.order"></TextInput>
                             </div>
                             <div class="mb-4">
                                 <InputLabel class="mb-1.5">URL</InputLabel>
                                 <TextInput class="w-full" v-model="form.slug"></TextInput>
                             </div>
-                            <div class="mb-4">
-                                <InputLabel class="mb-1.5">Előzetes ID</InputLabel>
-                                <TextInput type="number" class="w-full" v-model="form.video"></TextInput>
-                            </div>
-                            <div class="mb-4">
-                                <InputLabel class="mb-1.5">Boritókép</InputLabel>
-                                <ImageUploadComponent @image-uploaded="handleImageUpload"></ImageUploadComponent>
-                            </div>
+
 
                             <div class="mb-4">
-                                <PrimaryButton @click="submit()" class="mt-4">Kurzus létrehozása</PrimaryButton>
+                                <PrimaryButton @click="submit()" class="mt-4">Lecke létrehozása</PrimaryButton>
                             </div>
                         </div>
                     </div>
-
 
 
                 </form>

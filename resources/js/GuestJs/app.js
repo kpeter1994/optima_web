@@ -9,6 +9,7 @@ import OptimaLogo from "@/GuestJs/copmonents/OptimaLogo.vue";
 import LandingButton from "@/GuestJs/copmonents/LandingButton.vue";
 import FullNav from "@/GuestJs/copmonents/FullNav.vue";
 import VideoComponent from "@/GuestJs/copmonents/VideoComponent.vue";
+import LoginComponent from "@/GuestJs/copmonents/LoginComponent.vue";
 
 const app = createApp({});
 
@@ -19,6 +20,7 @@ app.component('optima-logo',OptimaLogo)
 app.component('landing-button',LandingButton)
 app.component('full-nav',FullNav)
 app.component('video-component',VideoComponent)
+app.component('login-component',LoginComponent)
 
 
 app.mount('#app-guest')

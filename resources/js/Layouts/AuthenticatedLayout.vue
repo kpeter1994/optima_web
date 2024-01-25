@@ -10,10 +10,16 @@ import DarkMode from "@/GuestJs/copmonents/DarkMode.vue";
 import OptimaLogo from "@/GuestJs/copmonents/OptimaLogo.vue";
 
 const showingNavigationDropdown = ref(false);
+
+const logout = () => {
+    axios.post(route('logout')).then(() => {
+        window.location.href = '/';
+    });
+};
 </script>
 
 <template>
-    <div>
+    <div class="bg-slate-100 dark:bg-black">
         <div class="min-h-screen">
             <nav class="">
                 <!-- Primary Navigation Menu -->
@@ -74,9 +80,10 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
-                                        <DropdownLink :href="route('logout')" method="post" as="button">
+                                        <DropdownLink @click="logout" as="button">
                                             Log Out
                                         </DropdownLink>
+
                                     </template>
                                 </Dropdown>
                             </div>

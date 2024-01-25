@@ -58,6 +58,16 @@ const handleVideoId = (videoId) => {
                                    title="5. nap"
                                    description="Ez az első napi lecke">
                     </VideoListItem>
+                    <VideoListItem @update:videoId="handleVideoId"
+                                   video-id="503673529"
+                                   title="5. nap"
+                                   description="Ez az első napi lecke">
+                    </VideoListItem>
+                    <VideoListItem @update:videoId="handleVideoId"
+                                   video-id="503673529"
+                                   title="5. nap"
+                                   description="Ez az első napi lecke">
+                    </VideoListItem>
 
                 </div>
             </div>

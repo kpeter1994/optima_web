@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\GuestPageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 
-    Route::resource('courses', CourseController::class);
+    Route::resource('kurzus', CourseController::class);
+    Route::resource('kurzus.lecke', LessonController::class);
+
+    Route::post('/lecke', [LessonController::class, 'store'])->name('lecke.store');
+
+
 
 });
 

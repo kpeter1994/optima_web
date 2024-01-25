@@ -12,7 +12,7 @@
         px-4
         py-3
         bg-gray-800
-        dark:bg-green-600
+        dark:bg-green-500
         border
         border-transparent
         rounded-lg
@@ -21,7 +21,7 @@
         dark:text-black
         tracking-widest
         hover:bg-gray-700
-        dark:hover:bg-green-500
+        dark:hover:bg-green-400
         focus:bg-gray-700
         dark:focus:bg-white
         active:bg-gray-900

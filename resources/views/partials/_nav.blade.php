@@ -8,14 +8,11 @@
             <a href="">Ingyenes webinárium</a>
             <dark-mode></dark-mode>
 
-            <a href="/">
-                <landing-button class="" href="/login">Belépek</landing-button>
-            </a>
+            <login-component></login-component>
+
         </div>
         <full-nav class="lg:hidden"></full-nav>
     </div>
-
-
 
 </header>
 

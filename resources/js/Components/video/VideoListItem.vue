@@ -23,7 +23,7 @@ onClickOutside(target, close)
 
 <template>
 
-    <div @click="open = true" ref="target" class="p-3 bg-slate-100 hover:bg-slate-200 dark:bg-gray-900 dark:hover:bg-gray-800 rounded-xl text-sm mb-1.5 hover:bg-gray-800 cursor-pointer transition-all">
+    <div @click="open = true" ref="target" class="p-3 bg-slate-200 hover:bg-white dark:bg-gray-900 dark:hover:bg-gray-800 rounded-xl text-sm mb-1.5 hover:bg-gray-800 cursor-pointer transition-all">
       <div class="flex justify-between items-center">
           <button class="flex items-center gap-1.5">
               <span @click="sendVideoId(props.videoId)" class="material-symbols-outlined text-blue-600 dark:text-green-600 dark:hover:text-white dark:transition-all">play_circle</span>
